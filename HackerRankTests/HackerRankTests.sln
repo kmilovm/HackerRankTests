@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackerRankLib", "..\HackerR
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackerRankTests", "HackerRankTests.csproj", "{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "..\Tests\Tests.csproj", "{77A314C9-F560-4DB6-887E-87FE76C4940C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A314C9-F560-4DB6-887E-87FE76C4940C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A314C9-F560-4DB6-887E-87FE76C4940C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A314C9-F560-4DB6-887E-87FE76C4940C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A314C9-F560-4DB6-887E-87FE76C4940C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
