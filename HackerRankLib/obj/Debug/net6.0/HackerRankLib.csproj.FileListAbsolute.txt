@@ -1,0 +1,11 @@
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\bin\Debug\net6.0\HackerRankLib.deps.json
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\bin\Debug\net6.0\HackerRankLib.dll
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\bin\Debug\net6.0\HackerRankLib.pdb
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\obj\Debug\net6.0\HackerRankLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\obj\Debug\net6.0\HackerRankLib.AssemblyInfoInputs.cache
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\obj\Debug\net6.0\HackerRankLib.AssemblyInfo.cs
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\obj\Debug\net6.0\HackerRankLib.csproj.CoreCompileInputs.cache
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\obj\Debug\net6.0\HackerRankLib.dll
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\obj\Debug\net6.0\refint\HackerRankLib.dll
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\obj\Debug\net6.0\HackerRankLib.pdb
+C:\FromFriedLaptop\SourceCode\Source code\Personal\HackerRankLib\obj\Debug\net6.0\ref\HackerRankLib.dll
