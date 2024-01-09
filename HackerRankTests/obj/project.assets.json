@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SourceCode\\Personal\\HackerRankTests\\HackerRankTests.csproj",
+      "projectUniqueName": "C:\\SourceCode\\Personal\\HackerRankTests\\HackerRankTests\\HackerRankTests.csproj",
       "projectName": "HackerRankTests",
-      "projectPath": "C:\\SourceCode\\Personal\\HackerRankTests\\HackerRankTests.csproj",
+      "projectPath": "C:\\SourceCode\\Personal\\HackerRankTests\\HackerRankTests\\HackerRankTests.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\SourceCode\\Personal\\HackerRankTests\\obj\\",
+      "outputPath": "C:\\SourceCode\\Personal\\HackerRankTests\\HackerRankTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,15 @@
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\bin\Debug\net6.0\HackerRankTests.exe
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\bin\Debug\net6.0\HackerRankTests.deps.json
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\bin\Debug\net6.0\HackerRankTests.runtimeconfig.json
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\bin\Debug\net6.0\HackerRankTests.dll
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\bin\Debug\net6.0\HackerRankTests.pdb
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\HackerRankTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\HackerRankTests.AssemblyInfoInputs.cache
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\HackerRankTests.AssemblyInfo.cs
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\HackerRankTests.csproj.CoreCompileInputs.cache
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\HackerRankTests.sourcelink.json
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\HackerRankTests.dll
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\refint\HackerRankTests.dll
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\HackerRankTests.pdb
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\HackerRankTests.genruntimeconfig.cache
+C:\SourceCode\Personal\HackerRankTests\HackerRankTests\obj\Debug\net6.0\ref\HackerRankTests.dll
