@@ -36,8 +36,9 @@ namespace Tests
         public void MiniMaxSumSuccess()
         {
             var numbers = _fixture.CreateMany<long>(5);
-            var answer = HackerRankLibHelper.MiniMaxSum(numbers.ToList());
-            _testOutputHelper.WriteLine(string.Join(',', numbers.ToList()));
+            var enumerable = numbers as long[] ?? numbers.ToArray();
+            var answer = HackerRankLibHelper.MiniMaxSum(enumerable.ToList());
+            _testOutputHelper.WriteLine(string.Join(',', enumerable.ToList()));
             _testOutputHelper.WriteLine(answer);
             Assert.NotEmpty(answer);
         }

@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Text;
+﻿using System.Text;
 
 namespace HackerRankLib
 {
@@ -23,19 +22,18 @@ namespace HackerRankLib
         public string StairCase(int number)
         {
             var arr = Enumerable.Range(1, number); //1,2,3,4,5,6 when n=6
-            var result = string.Empty;
+            var result = new StringBuilder();
             var enumerable = arr.ToList();
             foreach (var item in enumerable)
             {
-                var partialResult = string.Empty;
+                var partialResult = new StringBuilder();
                 for (var j = 0; j < item; j++)
                 {
-                    partialResult += "#";
+                    partialResult.Append('#');
                 }
-                partialResult = partialResult.PadLeft(number, ' ');
-                result += partialResult + Environment.NewLine;
+                result.AppendLine(partialResult.ToString());
             }
-            return result;
+            return result.ToString();
         }
 
         /// <summary>

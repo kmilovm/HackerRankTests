@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace HackerRankLib
+﻿namespace HackerRankLib
 {
     public interface IHackerRankLib
     {
