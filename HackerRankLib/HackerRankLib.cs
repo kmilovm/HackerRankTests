@@ -5,25 +5,24 @@ namespace HackerRankLib
 {
     public class HackerRankLibrary : IHackerRankLib
     {
-        public bool IsPalindrome(int numero)
+        public bool IsPalindrome(int number)
         {
-            var numeroOriginal = numero;
-            var numeroInvertido = 0;
+            var original = number;
+            var inverted = 0;
 
-            while (numero > 0)
+            while (number > 0)
             {
-                var digito = numero % 10;
-                numeroInvertido = (numeroInvertido * 10) + digito;
-                numero /= 10;
+                var digit = number % 10;
+                inverted = (inverted * 10) + digit;
+                number /= 10;
             }
-
-
-            return numeroOriginal == numeroInvertido;
+            
+            return original == inverted;
         }
 
-        public string StairCase(int numero)
+        public string StairCase(int number)
         {
-            var arr = Enumerable.Range(1, numero); //1,2,3,4,5,6 when n=6
+            var arr = Enumerable.Range(1, number); //1,2,3,4,5,6 when n=6
             var result = string.Empty;
             var enumerable = arr.ToList();
             foreach (var item in enumerable)
@@ -33,7 +32,7 @@ namespace HackerRankLib
                 {
                     partialResult += "#";
                 }
-                partialResult = partialResult.PadLeft(numero, ' ');
+                partialResult = partialResult.PadLeft(number, ' ');
                 result += partialResult + Environment.NewLine;
             }
             return result;
@@ -132,19 +131,6 @@ namespace HackerRankLib
             }
             return string.Join(",", results.Select(x => $"[{x.Item1},{x.Item2}]"));
         }
-
-        public List<Type> GetTypesFromNamespace(Assembly currentAssembly, string namespaceName)
-        {
-            var types = currentAssembly.GetReferencedAssemblies()
-                .Select(Assembly.Load)
-                .SelectMany(asm => asm.GetTypes())
-                .Where(type => type.IsClass &&
-                               !type.IsPublic &&
-                               !type.IsNestedPublic &&
-                               type.Namespace != null &&
-                               type.Namespace.IndexOf(namespaceName, StringComparison.OrdinalIgnoreCase) >= 0)
-                .ToList();
-            return types.ToList();
-        }
+       
     }
 }
