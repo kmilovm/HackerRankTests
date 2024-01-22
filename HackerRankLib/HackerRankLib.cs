@@ -148,7 +148,7 @@ namespace HackerRankLib
             return new Tuple<string, int>(numbersOnString.ToString(), result.Count);
         }
 
-        private static void FindConsecutiveNumbersHelper(Tree? node, List<int> currentPath, List<List<int>> result, int n)
+        private static void FindConsecutiveNumbersHelper(Tree? node, List<int> currentPath, ICollection<List<int>> result, int n)
         {
             while (true)
             {

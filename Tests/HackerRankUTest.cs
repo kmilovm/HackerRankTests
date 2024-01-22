@@ -86,59 +86,22 @@ namespace Tests
         }
 
         [Theory]
-        [InlineData(3)]
-        public void PossibleSuccessiveNumbers(int numberOfSuccessiveNumbers)
+        [MemberData(nameof(TreeTestData))]
+        public void PossibleSuccessiveNumbers(Tree treeData, int numberOfSuccessiveNumbers)
         {
-            var testTree = new Tree()
-            {
-                Value = 1,
-                LeftTree = new Tree
-                {
-                    Value = 2,
-                    LeftTree = new Tree
-                    {
-                        Value = 5,
-                        LeftTree = new Tree
-                        {
-                            Value = 3,
-                            LeftTree = null,
-                            RightTree = null
-                        },
-                        RightTree= null
-                    },
-                    RightTree = new Tree
-                    {
-                        Value = 9,
-                        LeftTree = null,
-                        RightTree = null
-                    }
-                },
-                RightTree = new Tree
-                {
-                    Value = 7,
-                    LeftTree = new Tree
-                    {
-                        Value = 4,
-                        LeftTree = null,
-                        RightTree = new Tree
-                        {
-                            Value = 0,
-                            LeftTree = null,
-                            RightTree = null
-                        }
-                    },
-                    RightTree = new Tree
-                    {
-                        Value = 8,
-                        LeftTree = null,
-                        RightTree = null
-                    }
-                }
-            };
-            var answer = HackerRankLibHelper.PossibleSuccessiveCombinations(testTree, numberOfSuccessiveNumbers);
+            var answer = HackerRankLibHelper.PossibleSuccessiveCombinations(treeData, numberOfSuccessiveNumbers);
             _testOutputHelper.WriteLine(answer.Item1);
             _testOutputHelper.WriteLine(answer.Item2.ToString());
             Assert.NotEmpty(answer.ToString());
         }
+
+        public static IEnumerable<object[]> TreeTestData =>
+            new List<object[]>
+            {
+                new object[] { new Tree() { Value = 1, LeftTree = new Tree { Value = 2, LeftTree = new Tree { Value = 5, LeftTree = new Tree { Value = 3, LeftTree = null, RightTree = null }, RightTree = null }, RightTree = new Tree { Value = 9, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 7, LeftTree = new Tree { Value = 4, LeftTree = null, RightTree = new Tree { Value = 0, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 8, LeftTree = null, RightTree = null } } }, 1 },
+                new object[] { new Tree() { Value = 1, LeftTree = new Tree { Value = 2, LeftTree = new Tree { Value = 5, LeftTree = new Tree { Value = 3, LeftTree = null, RightTree = null }, RightTree = null }, RightTree = new Tree { Value = 9, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 7, LeftTree = new Tree { Value = 4, LeftTree = null, RightTree = new Tree { Value = 0, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 8, LeftTree = null, RightTree = null } } }, 2 },
+                new object[] { new Tree() { Value = 1, LeftTree = new Tree { Value = 2, LeftTree = new Tree { Value = 5, LeftTree = new Tree { Value = 3, LeftTree = null, RightTree = null }, RightTree = null }, RightTree = new Tree { Value = 9, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 7, LeftTree = new Tree { Value = 4, LeftTree = null, RightTree = new Tree { Value = 0, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 8, LeftTree = null, RightTree = null } } }, 3 },
+            };
+        
     }
 }
