@@ -1,4 +1,6 @@
-﻿namespace HackerRankLib
+﻿using HackerRankLib.Model;
+
+namespace HackerRankLib
 {
     public static class HackerRankLibHelper
     {
@@ -31,6 +33,11 @@
         public static string PossibleTwoSums( int target, int arrayLength)
         {
             return _hackerRankLib!.PossibleTwoSums(target,arrayLength);
+        }
+
+        public static Tuple<string, int> PossibleSuccessiveCombinations(Tree node, int numberOfSuccessiveNumbers)
+        {
+            return _hackerRankLib!.PossibleSuccessiveCombinations(node, numberOfSuccessiveNumbers);
         }
     }
 }

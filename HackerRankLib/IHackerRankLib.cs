@@ -1,4 +1,6 @@
-﻿namespace HackerRankLib
+﻿using HackerRankLib.Model;
+
+namespace HackerRankLib
 {
     public interface IHackerRankLib
     {
@@ -11,5 +13,7 @@
         string BetterCompression(string str);
 
         string PossibleTwoSums(int target, int arrayLength);
+
+        Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers);
     }
 }

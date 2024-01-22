@@ -1,5 +1,7 @@
 using AutoFixture;
 using HackerRankLib;
+using HackerRankLib.Model;
+using System.Linq;
 using Xunit.Abstractions;
 
 namespace Tests
@@ -81,6 +83,62 @@ namespace Tests
             var answer = HackerRankLibHelper.PossibleTwoSums( target, arrayLength);
             _testOutputHelper.WriteLine(answer);
             Assert.NotEmpty(answer);
+        }
+
+        [Theory]
+        [InlineData(3)]
+        public void PossibleSuccessiveNumbers(int numberOfSuccessiveNumbers)
+        {
+            var testTree = new Tree()
+            {
+                Value = 1,
+                LeftTree = new Tree
+                {
+                    Value = 2,
+                    LeftTree = new Tree
+                    {
+                        Value = 5,
+                        LeftTree = new Tree
+                        {
+                            Value = 3,
+                            LeftTree = null,
+                            RightTree = null
+                        },
+                        RightTree= null
+                    },
+                    RightTree = new Tree
+                    {
+                        Value = 9,
+                        LeftTree = null,
+                        RightTree = null
+                    }
+                },
+                RightTree = new Tree
+                {
+                    Value = 7,
+                    LeftTree = new Tree
+                    {
+                        Value = 4,
+                        LeftTree = null,
+                        RightTree = new Tree
+                        {
+                            Value = 0,
+                            LeftTree = null,
+                            RightTree = null
+                        }
+                    },
+                    RightTree = new Tree
+                    {
+                        Value = 8,
+                        LeftTree = null,
+                        RightTree = null
+                    }
+                }
+            };
+            var answer = HackerRankLibHelper.PossibleSuccessiveCombinations(testTree, numberOfSuccessiveNumbers);
+            _testOutputHelper.WriteLine(answer.Item1);
+            _testOutputHelper.WriteLine(answer.Item2.ToString());
+            Assert.NotEmpty(answer.ToString());
         }
     }
 }

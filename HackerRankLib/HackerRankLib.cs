@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using HackerRankLib.Model;
 
 namespace HackerRankLib
 {
@@ -129,6 +130,42 @@ namespace HackerRankLib
             }
             return string.Join(",", results.Select(x => $"[{x.Item1},{x.Item2}]"));
         }
-       
+
+        public Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers)
+        {
+            return PossibleSuccessiveCombinationsRecursive(node,  numberOfSuccessiveNumbers);
+        }
+
+        private static Tuple<string,int> PossibleSuccessiveCombinationsRecursive(Tree? root, int numberOfSuccessiveNumbers)
+        {
+            var result = new List<List<int>>();
+            var numbersOnString = new StringBuilder();
+            FindConsecutiveNumbersHelper(root, new List<int>(), result, numberOfSuccessiveNumbers);
+            result.ForEach(numbers =>
+            {
+                numbersOnString.AppendLine(string.Join("", numbers));
+            });
+            return new Tuple<string, int>(numbersOnString.ToString(), result.Count);
+        }
+
+        private static void FindConsecutiveNumbersHelper(Tree? node, List<int> currentPath, List<List<int>> result, int n)
+        {
+            while (true)
+            {
+                if (node == null) return;
+
+                currentPath.Add(node.Value);
+
+                if (currentPath.Count == n)
+                {
+                    result.Add(new List<int>(currentPath));
+                    currentPath.RemoveAt(0);
+                }
+
+                FindConsecutiveNumbersHelper(node.LeftTree, new List<int>(currentPath), result, n);
+                node = node.RightTree;
+                currentPath = new List<int>(currentPath);
+            }
+        }
     }
 }
