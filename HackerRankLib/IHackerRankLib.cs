@@ -4,16 +4,18 @@ namespace HackerRankLib
 {
     public interface IHackerRankLib
     {
-        bool IsPalindrome(int number);
+        string BetterCompression(string str);
 
-        string StairCase(int number);
+        int FindSmallestPositiveInteger(int[] baseNumbers, int maxValue);
+
+        bool IsPalindrome(int number);
 
         string MiniMaxSum(List<long> arr);
 
-        string BetterCompression(string str);
+        Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers);
 
         string PossibleTwoSums(int target, int arrayLength);
 
-        Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers);
+        string StairCase(int number);
     }
 }

@@ -39,5 +39,10 @@ namespace HackerRankLib
         {
             return _hackerRankLib!.PossibleSuccessiveCombinations(node, numberOfSuccessiveNumbers);
         }
+
+        public static int FindSmallestPositiveInteger(int[] baseNumbers, int maxNumber)
+        {
+            return _hackerRankLib.FindSmallestPositiveInteger(baseNumbers, maxNumber);
+        }
     }
 }

@@ -1,6 +1,7 @@
 using AutoFixture;
 using HackerRankLib;
 using HackerRankLib.Model;
+using System.Linq;
 using Xunit.Abstractions;
 
 namespace Tests
@@ -22,6 +23,14 @@ namespace Tests
                 new object[] { new Tree() { Value = 1, LeftTree = new Tree { Value = 2, LeftTree = new Tree { Value = 5, LeftTree = new Tree { Value = 3, LeftTree = null, RightTree = null }, RightTree = null }, RightTree = new Tree { Value = 9, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 7, LeftTree = new Tree { Value = 4, LeftTree = null, RightTree = new Tree { Value = 0, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 8, LeftTree = null, RightTree = null } } }, 1 },
                 new object[] { new Tree() { Value = 1, LeftTree = new Tree { Value = 2, LeftTree = new Tree { Value = 5, LeftTree = new Tree { Value = 3, LeftTree = null, RightTree = null }, RightTree = null }, RightTree = new Tree { Value = 9, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 7, LeftTree = new Tree { Value = 4, LeftTree = null, RightTree = new Tree { Value = 0, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 8, LeftTree = null, RightTree = null } } }, 2 },
                 new object[] { new Tree() { Value = 1, LeftTree = new Tree { Value = 2, LeftTree = new Tree { Value = 5, LeftTree = new Tree { Value = 3, LeftTree = null, RightTree = null }, RightTree = null }, RightTree = new Tree { Value = 9, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 7, LeftTree = new Tree { Value = 4, LeftTree = null, RightTree = new Tree { Value = 0, LeftTree = null, RightTree = null } }, RightTree = new Tree { Value = 8, LeftTree = null, RightTree = null } } }, 3 },
+            };
+
+        public static IEnumerable<object[]> IntTestData =>
+            new List<object[]>
+            {
+                new object[] { new[] { 1, 3, 6, 4, 1, 2 }, int.MaxValue },
+                new object[] { new[] { 1, 2, 3 }, int.MaxValue },
+                new object[] { new[] { -1, -3 }, int.MaxValue },
             };
 
         [Fact]
@@ -100,6 +109,17 @@ namespace Tests
             var answer = HackerRankLibHelper.StairCase(number);
             _testOutputHelper.WriteLine(answer);
             Assert.NotEmpty(answer);
+        }
+
+        [Theory]
+        [MemberData(nameof(IntTestData))]
+
+        public void FindSmallestPositiveNumber(int[] baseNumbers, int maxValue)
+        {
+            var answer = HackerRankLibHelper.FindSmallestPositiveInteger(baseNumbers, maxValue);
+            _testOutputHelper.WriteLine(string.Join(",",baseNumbers));
+            _testOutputHelper.WriteLine(answer.ToString());
+            Assert.NotEqual(-1,answer);
         }
     }
 }
