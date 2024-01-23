@@ -1,7 +1,6 @@
 using AutoFixture;
 using HackerRankLib;
 using HackerRankLib.Model;
-using System.Linq;
 using Xunit.Abstractions;
 
 namespace Tests
