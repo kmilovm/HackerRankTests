@@ -130,6 +130,51 @@ namespace HackerRankLib
             }
             return string.Join(",", results.Select(x => $"[{x.Item1},{x.Item2}]"));
         }
+        /// <summary>
+        /// The problem focuses on binary trees, represented by pointer data structures.
+        /// A node of a binary tree contains a single digit and pointers to two other nodes, called the left subtree and the right subtree. If left subtree or right subtree does not exist, its corresponding pointer value is null.
+        /// For example, the figure below shows a binary tree consisting of seven nodes. Its root contains the value 1, and the roots of its left and right subtrees contain the values 2 and 7, respectively. In this example, the nodes with values 5 and 7 do not have right subtrees - their right subtrees are empty. The nodes containing values 3, 4 and 9 are leaves - their left and right subtrees are both empty.
+        /// Assume that the following declarations are given:
+        /// 
+        /// class Tree {
+        ///   public int x;
+        ///   public Tree l;
+        ///   public Tree r;
+        /// };
+        /// 
+        /// An empty tree is represented by null. A non-empty tree is represented by an object representing its root. The attribute x holds the integer contained in the node, whereas attributes l and r hold the left and right subtrees, respectively.
+        /// In this problem, nodes of the tree contain digits. A three-digit number can be created in the following way:
+        /// 
+        /// choose some node x from the tree;
+        /// choose some node y which is the left or right subtree of x;
+        /// choose some node z which is the left or right subtree of y;
+        /// concatenate the digits contained in nodes x, y, z (in that order) to obtain a three-digit number.
+        /// In other words, you choose some node in the tree, move exactly two edges down the tree and concatenate the digits encountered on the way. For example, in the tree presented above, you can create number 253 by starting in the node containing value 2 and then going down to the left subtree twice:
+        /// Your task is to count the number of different three-digit numbers that can be created this way. Note that while some numbers may be able to be created in different ways, each number should be counted only once.
+        /// Write a function:
+        /// 
+        /// java
+        /// Copy code
+        /// class Solution { public int solution(Tree T); }
+        /// that, given a binary tree T consisting of N nodes, returns the number of different three-digit numbers that can be created as described above.
+        /// Examples:
+        /// 
+        /// Given a tree T described in the example above which could also be denoted as:
+        /// css
+        /// Copy code
+        /// (1, (2, (5, (3, None, None), None), (9, None, None)), (7, (4, None, None), None))
+        /// the function should return 4. You can create the following numbers: 125, 253, 129, 174.
+        /// 2. Given a tree T:
+        /// 
+        /// The function should return 5. You can create the following numbers: 992, 999, 959, 595, 599. Number 959 can be created in three different ways but it should be counted only once in the answer.
+        /// Write an efficient algorithm for the following assumptions:
+        /// 
+        /// N is an integer within the range [1..30,000];
+        /// each value in tree T is a digit within the range [1..9].*/
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="numberOfSuccessiveNumbers"></param>
+        /// <returns></returns>
 
         public Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers)
         {
