@@ -125,7 +125,10 @@ namespace HackerRankLib
                 sensorData[sensorId].Add(temp);
             }
 
-            var sensorAverages = (from sensorId in sensors where sensorData.ContainsKey(sensorId) select sensorData[sensorId].Average() into average select (int)Math.Round(average, MidpointRounding.AwayFromZero)).ToList();
+            var sensorAverages = (from sensorId in sensors 
+                                            where sensorData.ContainsKey(sensorId) 
+                                                select sensorData[sensorId].Average() into average 
+                                                    select (int)Math.Round(average, MidpointRounding.ToZero)).ToList();
 
             var overAllAverage = sensorAverages.Count > 0 ? (int)Math.Round(sensorAverages.Average(), MidpointRounding.AwayFromZero) : 0;
             return overAllAverage;

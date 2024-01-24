@@ -137,10 +137,11 @@ namespace Tests
 
         public void GetAverageTemperatureFromSensors(string[] dataPoints, string[] sensors)
         {
+            const int expectedValue = 300;
             var answer = HackerRankLibHelper.GetAverageTemperatureFromSensors(dataPoints, sensors);
-            _testOutputHelper.WriteLine(answer.ToString());
+            _testOutputHelper.WriteLine($"Expected: {expectedValue}, Got {answer}");
             Assert.NotEqual(-1, answer);
-            Assert.Equal(300, answer);
+            Assert.Equal(expectedValue, answer);
         }
     }
 }
