@@ -44,5 +44,10 @@ namespace HackerRankLib
         {
             return _hackerRankLib.FindSmallestPositiveInteger(baseNumbers, maxNumber);
         }
+
+        public static int GetAverageTemperatureFromSensors(string[] datapoints, string[] sensors)
+        {
+            return _hackerRankLib.GetAverageTemperatureFromSensors(datapoints, sensors);
+        }
     }
 }

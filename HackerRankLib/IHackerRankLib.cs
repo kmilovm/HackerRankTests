@@ -17,5 +17,7 @@ namespace HackerRankLib
         string PossibleTwoSums(int target, int arrayLength);
 
         string StairCase(int number);
+
+        int GetAverageTemperatureFromSensors(string[] datapoints, string[] sensors);
     }
 }

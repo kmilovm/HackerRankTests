@@ -32,6 +32,17 @@ namespace Tests
                 new object[] { new[] { -1, -3 }, int.MaxValue },
             };
 
+        public static IEnumerable<object[]> TempTestData =>
+            new List<object[]>
+            {
+                //new object[] { new[] { "1_300_1704743490", "1_400_1704757890", "2_200_1704743490", "2_300_1704757890" }, new [] {"1", "2"} },
+                //new object[] { new[] { "1_300_1704743490", "2_200_1704743490" }, new [] {"1"} },
+                new object[] { new[] { "1_400_1704757890", "1_300_1704743490", "1_400_1704757890", "2_200_1704743490", "2_300_1704757890" }, new [] {"1", "2"} },
+                //new object[] { new[] { "1_250_1704743490", "1_300_1704743700", "1_270_1704755000", "1_260_1704757000", "1_226_1704757890", "2_300_1704743490", "2_400_1704743700", "2_380_1704755000", "2_330_1704757000", "2_281_1704757890" }, new [] {"1", "2"} },
+                //new object[] { new[] { "1_340_1704743490", "1_400_1704755000", "1_310_1704757890", "2_220_1704743490", "2_230_1704743700", "2_260_1704755000", "2_290_1704757000", "2_250_1704757890" }, new [] {"1", "2"} },
+                //new object[] { new[] { "1_300_1704743490" }, new [] {"1"} }
+            };
+
         [Fact]
 
         public void BetterCompressionSuccess()
@@ -119,6 +130,16 @@ namespace Tests
             _testOutputHelper.WriteLine(string.Join(",",baseNumbers));
             _testOutputHelper.WriteLine(answer.ToString());
             Assert.NotEqual(-1,answer);
+        }
+
+        [Theory]
+        [MemberData(nameof(TempTestData))]
+
+        public void GetAverageTemperatureFromSensors(string[] dataPoints, string[] sensors)
+        {
+            var answer = HackerRankLibHelper.GetAverageTemperatureFromSensors(dataPoints, sensors);
+            _testOutputHelper.WriteLine(answer.ToString());
+            Assert.NotEqual(-1, answer);
         }
     }
 }

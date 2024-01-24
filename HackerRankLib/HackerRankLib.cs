@@ -254,5 +254,33 @@ namespace HackerRankLib
                 sortedDictionary[prevLetter] += Convert.ToInt32(number);
             }
         }
+        
+        public int GetAverageTemperatureFromSensors(string[] datapoints, string[] sensors)
+        {
+            var sensorData = new Dictionary<string, List<int>>();
+            foreach (var t in datapoints)
+            {
+                var entry = t.Split('_');
+                var sensorId = entry[0];
+                var temp = int.Parse(entry[1]);
+
+                if (!Array.Exists(sensors, id => id == sensorId)) continue;
+                if (!sensorData.ContainsKey(sensorId))
+                {
+                    sensorData[sensorId] = new List<int>();
+                }
+                sensorData[sensorId].Add(temp);
+            }
+
+            var sensorAverages = (from sensorId in sensors where sensorData.ContainsKey(sensorId) select sensorData[sensorId].Average() into average select (int)Math.Round(average, MidpointRounding.AwayFromZero)).ToList();
+
+            var overAllAverage = sensorAverages.Count > 0 ? (int)Math.Round(sensorAverages.Average(), MidpointRounding.AwayFromZero) : 0;
+            return overAllAverage;
+        }
+
     }
 }
+
+
+
+  
