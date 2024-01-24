@@ -81,7 +81,7 @@ namespace HackerRankLib
         ///We have a client who has deployed temperature sensors throughout cold storage warehouses. 
         ///They need to process the data from these sensors in order to determine the average temperature. Write the following function:
         ///
-        ///The first argument is the sensor data, each entry is comprised of three values separated by underscores:
+        ///The first argument is the sensor data, each entry comprises three values separated by underscores:
         ///
         ///sensor id_temperature reading in hundredths of degrees Celsius_Unix timestamp
         ///
@@ -128,7 +128,7 @@ namespace HackerRankLib
             var sensorAverages = (from sensorId in sensors 
                                             where sensorData.ContainsKey(sensorId) 
                                                 select sensorData[sensorId].Average() into average 
-                                                    select (int)Math.Round(average, MidpointRounding.ToZero)).ToList();
+                                                    select (int)Math.Round(average, MidpointRounding.AwayFromZero)).ToList();
 
             var overAllAverage = sensorAverages.Count > 0 ? (int)Math.Round(sensorAverages.Average(), MidpointRounding.AwayFromZero) : 0;
             return overAllAverage;

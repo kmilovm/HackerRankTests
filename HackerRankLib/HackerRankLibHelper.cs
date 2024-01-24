@@ -42,12 +42,12 @@ namespace HackerRankLib
 
         public static int FindSmallestPositiveInteger(int[] baseNumbers, int maxNumber)
         {
-            return _hackerRankLib.FindSmallestPositiveInteger(baseNumbers, maxNumber);
+            return _hackerRankLib!.FindSmallestPositiveInteger(baseNumbers, maxNumber);
         }
 
         public static int GetAverageTemperatureFromSensors(string[] datapoints, string[] sensors)
         {
-            return _hackerRankLib.GetAverageTemperatureFromSensors(datapoints, sensors);
+            return _hackerRankLib!.GetAverageTemperatureFromSensors(datapoints, sensors);
         }
     }
 }
