@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/HackerRankLib/obj/Debug/net6.0/HackerRankLib.AssemblyInfo.cs
+/HackerRankLib/obj/Debug/net6.0/HackerRankLib.sourcelink.json
