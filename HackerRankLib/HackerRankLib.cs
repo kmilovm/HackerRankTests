@@ -77,6 +77,61 @@ namespace HackerRankLib
             return -1;
         }
         /// <summary>
+        /// Gets the average temperature from sensors.
+        ///We have a client who has deployed temperature sensors throughout cold storage warehouses. 
+        ///They need to process the data from these sensors in order to determine the average temperature. Write the following function:
+        ///
+        ///The first argument is the sensor data, each entry is comprised of three values separated by underscores:
+        ///
+        ///sensor id_temperature reading in hundredths of degrees Celsius_Unix timestamp
+        ///
+        ///For example:
+        ///
+        ///"1_347_1704743490",
+        ///"1_344_1704750690",
+        ///"2_312_1704743490",
+        ///"2_308_1704750690",
+        ///"2_308_1704750690",
+        ///"3_398_1704743490",
+        ///"3_398_1704750690",
+        ///"4_319_1704743490",
+        ///"4_321_1704750690"
+        ///The second argument is a list of sensor ids to sample data from. For example:
+        ///
+        ///"1",
+        ///"2",
+        ///"3"
+        ///The function should return the average temperature in hundredths of degrees Celsius by first averaging the temperature for each specific sensor and then taking the average temperature across all sensors. 
+        ///In order to avoid off-by-one errors, do not round the data until determining the overall average. 
+        ///Due to the nature of the recording these data points there may be some duplicated entries we should ignore, additionally the data points may not be in order.
+        /// </summary>
+        /// <param name="dataPoints">The dataPoints.</param>
+        /// <param name="sensors">The sensors.</param>
+        /// <returns></returns>
+        public int GetAverageTemperatureFromSensors(string[] dataPoints, string[] sensors)
+        {
+            var sensorData = new Dictionary<string, List<int>>();
+            foreach (var t in dataPoints)
+            {
+                var entry = t.Split('_');
+                var sensorId = entry[0];
+                var temp = int.Parse(entry[1]);
+
+                if (!Array.Exists(sensors, id => id == sensorId)) continue;
+                if (!sensorData.ContainsKey(sensorId))
+                {
+                    sensorData[sensorId] = new List<int>();
+                }
+                sensorData[sensorId].Add(temp);
+            }
+
+            var sensorAverages = (from sensorId in sensors where sensorData.ContainsKey(sensorId) select sensorData[sensorId].Average() into average select (int)Math.Round(average, MidpointRounding.AwayFromZero)).ToList();
+
+            var overAllAverage = sensorAverages.Count > 0 ? (int)Math.Round(sensorAverages.Average(), MidpointRounding.AwayFromZero) : 0;
+            return overAllAverage;
+        }
+
+        /// <summary>
         /// Determines whether the specified number is palindrome.
         /// </summary>
         /// <param name="number">The number.</param>
@@ -254,30 +309,6 @@ namespace HackerRankLib
                 sortedDictionary[prevLetter] += Convert.ToInt32(number);
             }
         }
-        
-        public int GetAverageTemperatureFromSensors(string[] datapoints, string[] sensors)
-        {
-            var sensorData = new Dictionary<string, List<int>>();
-            foreach (var t in datapoints)
-            {
-                var entry = t.Split('_');
-                var sensorId = entry[0];
-                var temp = int.Parse(entry[1]);
-
-                if (!Array.Exists(sensors, id => id == sensorId)) continue;
-                if (!sensorData.ContainsKey(sensorId))
-                {
-                    sensorData[sensorId] = new List<int>();
-                }
-                sensorData[sensorId].Add(temp);
-            }
-
-            var sensorAverages = (from sensorId in sensors where sensorData.ContainsKey(sensorId) select sensorData[sensorId].Average() into average select (int)Math.Round(average, MidpointRounding.AwayFromZero)).ToList();
-
-            var overAllAverage = sensorAverages.Count > 0 ? (int)Math.Round(sensorAverages.Average(), MidpointRounding.AwayFromZero) : 0;
-            return overAllAverage;
-        }
-
     }
 }
 

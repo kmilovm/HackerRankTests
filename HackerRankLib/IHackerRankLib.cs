@@ -18,6 +18,6 @@ namespace HackerRankLib
 
         string StairCase(int number);
 
-        int GetAverageTemperatureFromSensors(string[] datapoints, string[] sensors);
+        int GetAverageTemperatureFromSensors(string[] dataPoints, string[] sensors);
     }
 }
