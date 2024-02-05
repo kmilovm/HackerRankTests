@@ -19,5 +19,7 @@ namespace HackerRankLib
         string StairCase(int number);
 
         int GetAverageTemperatureFromSensors(string[] dataPoints, string[] sensors);
+
+        int MaxBinaryGaps(int[] numbers);
     }
 }

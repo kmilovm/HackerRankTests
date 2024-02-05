@@ -49,5 +49,10 @@ namespace HackerRankLib
         {
             return _hackerRankLib!.GetAverageTemperatureFromSensors(datapoints, sensors);
         }
+
+        public static int MaxBinaryGaps(int[] numbers)
+        {
+            return _hackerRankLib!.MaxBinaryGaps(numbers);
+        }
     }
 }

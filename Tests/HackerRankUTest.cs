@@ -118,5 +118,17 @@ namespace Tests
             Assert.NotEqual(-1, answer);
             Assert.Equal(expectedValue, answer);
         }
+
+        [Theory]
+        [InlineData( new[]{ 32, 9, 529, 20, 15, 1041 })]
+
+        public void MaxBinaryGaps(int[] numbers)
+        {
+            const int expectedValue = 5;
+            var answer = HackerRankLibHelper.MaxBinaryGaps(numbers);
+            _testOutputHelper.WriteLine($"Expected: {expectedValue}, Got {answer}");
+            Assert.NotEqual(0, answer);
+            Assert.Equal(expectedValue, answer);
+        }
     }
 }
