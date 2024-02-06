@@ -1,5 +1,8 @@
-﻿using System.Text;
+﻿using System.Diagnostics.Metrics;
+using System.Runtime.InteropServices.ComTypes;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks.Sources;
 using HackerRankLib.Model;
 
 namespace HackerRankLib
@@ -28,7 +31,7 @@ namespace HackerRankLib
             {
                 if (char.IsLetter(chr))
                 {
-                    SetValuesIntoArray(number.ToString(), prevLetter, list);
+                    FunctionsHelper.SetValuesIntoArray(number.ToString(), prevLetter, list);
                     number.Clear();
                     prevLetter = chr;
                 }
@@ -42,7 +45,7 @@ namespace HackerRankLib
                 }
             }
 
-            SetValuesIntoArray(number.ToString(), prevLetter, list);
+            FunctionsHelper.SetValuesIntoArray(number.ToString(), prevLetter, list);
             return string.Join("", list.Select(x => $"{x.Key}{x.Value}"));
         }
 
@@ -176,7 +179,7 @@ namespace HackerRankLib
             foreach (var number in numbers)
             {
                 var numBinRep = Convert.ToString(number, 2);
-                const string pattern = @"(?=(10+1))";0
+                const string pattern = @"(?=(10+1))";
                 var regex = new Regex(pattern);
                 var matches = regex.Matches(numBinRep);
                 var prevCounter = 0;
@@ -257,7 +260,14 @@ namespace HackerRankLib
         /// </returns>
         public Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers)
         {
-            return PossibleSuccessiveCombinationsRecursive(node, numberOfSuccessiveNumbers);
+            var result = new List<List<int>>();
+            var numbersOnString = new StringBuilder();
+            FunctionsHelper.FindConsecutiveNumbersHelper(node, new List<int>(), result, numberOfSuccessiveNumbers);
+            result.ForEach(numbers =>
+            {
+                numbersOnString.AppendLine(string.Join("", numbers));
+            });
+            return new Tuple<string, int>(numbersOnString.ToString(), result.Count);
         }
 
         /// <summary>
@@ -303,52 +313,32 @@ namespace HackerRankLib
             }
             return result.ToString();
         }
-        
-        private static void FindConsecutiveNumbersHelper(Tree? node, List<int> currentPath, ICollection<List<int>> result, int n)
+
+        /// <summary>
+        /// Cyclic the rotation.
+        /// </summary>
+        /// <param name="initialArr">The initial arr.</param>
+        /// <param name="rotations">The rotations.</param>
+        /// <returns></returns>
+        public int[] CyclicRotation(int[] initialArr, int rotations)
         {
-            while (true)
+            var lastPosIdx = initialArr.Length - 1;
+            var result = new List<int>(initialArr.ToList());
+            var counter = 1;
+            
+            while (counter <= rotations)
             {
-                if (node == null) return;
-
-                currentPath.Add(node.Value);
-
-                if (currentPath.Count == n)
+                var lastItem = initialArr[^1];                
+                for (var i = 0; i < initialArr.Length - 1; i++)
                 {
-                    result.Add(new List<int>(currentPath));
-                    currentPath.RemoveAt(0);
+                    result[i + 1] = initialArr[i];
                 }
-
-                FindConsecutiveNumbersHelper(node.LeftTree, new List<int>(currentPath), result, n);
-                node = node.RightTree;
-                currentPath = new List<int>(currentPath);
+                result[0] = lastItem;
+                Array.Copy(result.ToArray(), initialArr, initialArr.Length);
+                counter++;
             }
-        }
 
-
-        private static Tuple<string, int> PossibleSuccessiveCombinationsRecursive(Tree? root, int numberOfSuccessiveNumbers)
-        {
-            var result = new List<List<int>>();
-            var numbersOnString = new StringBuilder();
-            FindConsecutiveNumbersHelper(root, new List<int>(), result, numberOfSuccessiveNumbers);
-            result.ForEach(numbers =>
-            {
-                numbersOnString.AppendLine(string.Join("", numbers));
-            });
-            return new Tuple<string, int>(numbersOnString.ToString(), result.Count);
-        }
-
-        private static void SetValuesIntoArray(string number, char prevLetter, IDictionary<char, int> sortedDictionary)
-        {
-            if (string.IsNullOrEmpty(number)) return;
-            if (prevLetter == default) return;
-            if (!sortedDictionary.ContainsKey(prevLetter))
-            {
-                sortedDictionary.Add(prevLetter, Convert.ToInt32(number));
-            }
-            else
-            {
-                sortedDictionary[prevLetter] += Convert.ToInt32(number);
-            }
+            return result.ToArray();
         }
     }
 }

@@ -21,5 +21,7 @@ namespace HackerRankLib
         int GetAverageTemperatureFromSensors(string[] dataPoints, string[] sensors);
 
         int MaxBinaryGaps(int[] numbers);
+
+        int[] CyclicRotation(int[] initialArr, int rotations);
     }
 }

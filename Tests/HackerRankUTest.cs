@@ -130,5 +130,20 @@ namespace Tests
             Assert.NotEqual(0, answer);
             Assert.Equal(expectedValue, answer);
         }
+
+        [Theory]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, new[] { 6, 1, 2, 3, 4, 5 }, 1)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, new[] { 5, 6, 1, 2, 3, 4 }, 2)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, new[] { 4, 5, 6, 1, 2, 3 }, 3)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, new[] { 3, 4, 5, 6, 1, 2 }, 4)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, new[] { 2, 3, 4, 5, 6, 1 }, 5)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, new[] { 1, 2, 3, 4, 5, 6 }, 6)]
+
+        public void CycleRotation(int[] numbers, int[] expected, int rotations)
+        {
+            var answer = HackerRankLibHelper.CyclicRotation(numbers, rotations);
+            _testOutputHelper.WriteLine($"Expected: {expected}, Got {answer}");
+            Assert.Equal(expected, answer);
+        }
     }
 }

@@ -54,5 +54,10 @@ namespace HackerRankLib
         {
             return _hackerRankLib!.MaxBinaryGaps(numbers);
         }
+
+        public static int[] CyclicRotation(int[] initialArray, int rotations)
+        {
+            return _hackerRankLib!.CyclicRotation(initialArray, rotations);
+        }
     }
 }
