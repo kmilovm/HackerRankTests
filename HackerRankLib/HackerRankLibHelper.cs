@@ -59,5 +59,10 @@ namespace HackerRankLib
         {
             return _hackerRankLib!.CyclicRotation(initialArray, rotations);
         }
+
+        public static int[] CombineArrays(int[] arrA, int[] arrB, int numberOfItemsToGrabOnA, int numberOfItemsToGrabOnB)
+        {
+            return _hackerRankLib!.CombineArrays(arrA, arrB, numberOfItemsToGrabOnA, numberOfItemsToGrabOnB);
+        }
     }
 }

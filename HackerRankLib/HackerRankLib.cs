@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.Metrics;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -339,6 +340,19 @@ namespace HackerRankLib
             }
 
             return result.ToArray();
+        }
+
+        /// <summary>
+        /// Combines the arrays.
+        /// </summary>
+        /// <param name="arrA">The arr a.</param>
+        /// <param name="arrB">The arr b.</param>
+        /// <param name="numberOfItemsToGrabOnA">The number of items to grab on a.</param>
+        /// <param name="numberOfItemsToGrabOnB">The number of items to grab on b.</param>
+        /// <returns></returns>
+        public int[] CombineArrays(int[] arrA, int[] arrB, int numberOfItemsToGrabOnA, int numberOfItemsToGrabOnB)
+        {
+            return [.. arrA[0..numberOfItemsToGrabOnA], .. arrB[0..numberOfItemsToGrabOnB]];
         }
     }
 }

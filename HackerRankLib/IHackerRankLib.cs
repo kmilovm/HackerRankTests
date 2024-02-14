@@ -23,5 +23,7 @@ namespace HackerRankLib
         int MaxBinaryGaps(int[] numbers);
 
         int[] CyclicRotation(int[] initialArr, int rotations);
+
+        int[] CombineArrays(int[] arrA, int[] arrB, int numberOfItemsToGrabOnA, int numberOfItemsToGrabOnB);
     }
 }
