@@ -30,6 +30,14 @@ namespace Tests
                 new object[] { new[] { "1_300_1704743490" }, new [] {"1"} }
             };
 
+        public static IEnumerable<object[]> CombArrayTestData =>
+            new List<object[]>
+            {
+                new object[] { new[] { 1, 2, 3, 4, 5, 6 }, new[] { 6, 1, 2, 3, 4, 5 }, new[] { 1, 6 }, 1, 1},
+                new object[] { new[] { 1, 2, 3, 4, 5, 6 }, new[] { 5, 6, 1, 2, 3, 4 }, new[] { 1, 2, 5, 6 }, 2, 2},
+                new object[] { new[] { 1, 2, 3, 4, 5, 6 }, new[] { 4, 5, 6, 1, 2, 3 }, new[] { 1, 2, 3, 4, 5, 6 }, 3, 3}
+            };
+
         public static IEnumerable<object[]> TempFailData =>
             new List<object[]>
             {
