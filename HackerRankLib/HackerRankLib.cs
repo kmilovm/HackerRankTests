@@ -1,9 +1,5 @@
-﻿using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks.Sources;
 using HackerRankLib.Model;
 
 namespace HackerRankLib
@@ -323,7 +319,6 @@ namespace HackerRankLib
         /// <returns></returns>
         public int[] CyclicRotation(int[] initialArr, int rotations)
         {
-            var lastPosIdx = initialArr.Length - 1;
             var result = new List<int>(initialArr.ToList());
             var counter = 1;
             
