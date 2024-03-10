@@ -155,5 +155,15 @@ namespace Tests
             _testOutputHelper.WriteLine($"Expected: {expected}, Got {answer}");
             Assert.Equal(expected, answer);
         }
+
+        [Theory]
+        [InlineData(new[] { 1, 2, 5 }, new[]{"1,1", "1,2", "1,5", "2,1", "2,2", "2,5", "5,1", "5,2", "5,5" })]
+        public void BuildCartesianProduct(int[] arrayA, string[] expected)
+        {
+            var answer = HackerRankLibHelper.BuildCartesianProduct(arrayA);
+            _testOutputHelper.WriteLine($"Expected: {expected}, Got {answer}");
+            Assert.NotNull(answer);
+            Assert.Equal(expected, answer.ToArray());
+        }
     }
 }

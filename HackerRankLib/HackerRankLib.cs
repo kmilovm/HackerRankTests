@@ -4,6 +4,10 @@ using HackerRankLib.Model;
 
 namespace HackerRankLib
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="HackerRankLib.IHackerRankLib" />
     public class HackerRankLibrary : IHackerRankLib
     {
         /// <summary>
@@ -347,8 +351,28 @@ namespace HackerRankLib
         /// <returns></returns>
         public int[] CombineArrays(int[] arrA, int[] arrB, int numberOfItemsToGrabOnA, int numberOfItemsToGrabOnB)
         {
+            var terst = arrA.Take(numberOfItemsToGrabOnA).Union(arrB.Take(numberOfItemsToGrabOnB));
             return [.. arrA[0..numberOfItemsToGrabOnA], .. arrB[0..numberOfItemsToGrabOnB]];
         }
+
+        /// <summary>
+        /// Implement the BuildCartesianProduct method, which given a collection of unique numbers will return the Cartesian product for those numbers as strings.
+        /// For example for input (1,2 5) the result shall be "1 11", "12", "15", "21", "22", "25", "51","52","55"
+        /// </summary>
+        /// <param name="arrA">The array A</param>
+        /// <returns></returns>
+        public IEnumerable<string> BuildCartesianProduct(int[] arrA)
+        {
+            var finalResult = new List<string>();
+
+            foreach (var item in arrA)
+            {
+                finalResult.AddRange(arrA.Select(t => "" + item + "," + t));
+            }
+
+            return finalResult;
+        }
+                
     }
 }
 

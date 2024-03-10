@@ -25,5 +25,7 @@ namespace HackerRankLib
         int[] CyclicRotation(int[] initialArr, int rotations);
 
         int[] CombineArrays(int[] arrA, int[] arrB, int numberOfItemsToGrabOnA, int numberOfItemsToGrabOnB);
+
+        IEnumerable<string> BuildCartesianProduct(int[] arrA);
     }
 }
