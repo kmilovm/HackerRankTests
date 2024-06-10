@@ -26,19 +26,7 @@ public class FunctionsHelper
             currentPath = [..currentPath];
         }
     }
-
-
-    public static Tuple<string, int> PossibleSuccessiveCombinationsRecursive(Tree? root, int numberOfSuccessiveNumbers)
-    {
-        var result = new List<List<int>>();
-        var numbersOnString = new StringBuilder();
-        FindConsecutiveNumbersHelper(root, new List<int>(), result, numberOfSuccessiveNumbers);
-        result.ForEach(numbers =>
-        {
-            numbersOnString.AppendLine(string.Join("", numbers));
-        });
-        return new Tuple<string, int>(numbersOnString.ToString(), result.Count);
-    }
+    
 
     public static void SetValuesIntoArray(string number, char prevLetter, IDictionary<char, int> sortedDictionary)
     {

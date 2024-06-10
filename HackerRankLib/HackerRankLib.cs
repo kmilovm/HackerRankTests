@@ -321,21 +321,14 @@ namespace HackerRankLib
         {
             var result = new List<List<int>>();
             var numbersOnString = new StringBuilder();
+            var uniqueNumbers = new HashSet<string>();
             FunctionsHelper.FindConsecutiveNumbersHelper(node, [], result, numberOfSuccessiveNumbers);
             var counter = 0;
-            result.ForEach(numbers =>
+            foreach (var newNumber in result.Select(numbers => string.Join("", numbers)).Where(newNumber => allowDuplicates || uniqueNumbers.Add(newNumber)))
             {
-                var newNumber = string.Join("", numbers);
-                if (allowDuplicates)
-                {
-                    numbersOnString.AppendLine(newNumber);
-                }
-                else if (!numbersOnString.ToString().Contains(newNumber))
-                {
-                    numbersOnString.AppendLine(newNumber);
-                    counter++;
-                }
-            });
+                numbersOnString.AppendLine(newNumber);
+                counter++;
+            }
             return new Tuple<string, int>(numbersOnString.ToString(), allowDuplicates ? result.Count : counter);
         }
 

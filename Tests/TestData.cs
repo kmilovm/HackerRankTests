@@ -259,7 +259,70 @@ namespace Tests
                 3,
                 false,
                 5
+            },
+            new object[]
+            {
+                new Tree()
+                {
+                    Value = 9,
+                    LeftTree = new Tree
+                    {
+                        Value = 9,
+                        LeftTree = new Tree
+                        {
+                            Value = 2,
+                            LeftTree = null,
+                            RightTree = null
+                        },
+                        RightTree = new Tree
+                        {
+                            Value = 9,
+                            LeftTree = null,
+                            RightTree = null
+                        }
+                    },
+                    RightTree = new Tree
+                    {
+                        Value = 5,
+                        LeftTree = new Tree
+                        {
+                            Value = 9,
+                            LeftTree = new Tree
+                            {
+                                Value = 9,
+                                LeftTree = new Tree
+                                {
+                                    Value = 5,
+                                    LeftTree = null,
+                                    RightTree = new Tree
+                                    {
+                                        Value = 9,
+                                        LeftTree = null,
+                                        RightTree = null
+                                    }
+                                },
+                                RightTree = new Tree
+                                {
+                                    Value = 9,
+                                    LeftTree = null,
+                                    RightTree = null
+                                }
+                            },
+                            RightTree = null
+                        },
+                        RightTree = new Tree
+                        {
+                            Value = 9,
+                            LeftTree = null,
+                            RightTree = null
+                        }
+                    }
+                },
+                3,
+                true,
+                8
             }
+
        }; 
     }
 }
