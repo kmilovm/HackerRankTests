@@ -58,11 +58,12 @@ namespace Tests
 
         [Theory]
         [MemberData(nameof(TestData.TreeTestData), MemberType = typeof(TestData))]
-        public void PossibleSuccessiveNumbers(Tree treeData, int numberOfSuccessiveNumbers)
+        public void PossibleSuccessiveNumbers(Tree treeData, int numberOfSuccessiveNumbers, bool allowDuplicates, int expectedItems)
         {
-            var answer = HackerRankLibHelper.PossibleSuccessiveCombinations(treeData, numberOfSuccessiveNumbers);
+            var answer = HackerRankLibHelper.PossibleSuccessiveCombinations(treeData, numberOfSuccessiveNumbers, allowDuplicates);
             _testOutputHelper.WriteLine(answer.Item1);
             _testOutputHelper.WriteLine(answer.Item2.ToString());
+            Assert.Equal(answer.Item2, expectedItems);
             Assert.NotEmpty(answer.ToString());
         }
 

@@ -16,13 +16,14 @@ public class FunctionsHelper
 
             if (currentPath.Count == n)
             {
-                result.Add(new List<int>(currentPath));
+                Console.WriteLine(currentPath);
+                result.Add([..currentPath]);
                 currentPath.RemoveAt(0);
             }
 
-            FindConsecutiveNumbersHelper(node.LeftTree, new List<int>(currentPath), result, n);
+            FindConsecutiveNumbersHelper(node.LeftTree, [..currentPath], result, n);
             node = node.RightTree;
-            currentPath = new List<int>(currentPath);
+            currentPath = [..currentPath];
         }
     }
 

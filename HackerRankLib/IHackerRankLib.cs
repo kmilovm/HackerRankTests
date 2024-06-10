@@ -12,7 +12,7 @@ namespace HackerRankLib
 
         string MiniMaxSum(List<long> arr);
 
-        Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers);
+        Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers, bool allowDuplicates);
 
         string PossibleTwoSums(int target, int arrayLength);
 

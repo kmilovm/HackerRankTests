@@ -36,9 +36,9 @@ namespace HackerRankLib
             return _hackerRankLib!.PossibleTwoSums(target, arrayLength);
         }
 
-        public static Tuple<string, int> PossibleSuccessiveCombinations(Tree node, int numberOfSuccessiveNumbers)
+        public static Tuple<string, int> PossibleSuccessiveCombinations(Tree node, int numberOfSuccessiveNumbers, bool allowDuplicates)
         {
-            return _hackerRankLib!.PossibleSuccessiveCombinations(node, numberOfSuccessiveNumbers);
+            return _hackerRankLib!.PossibleSuccessiveCombinations(node, numberOfSuccessiveNumbers, allowDuplicates);
         }
 
         public static int FindSmallestPositiveInteger(int[] baseNumbers, int maxNumber)

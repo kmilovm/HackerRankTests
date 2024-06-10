@@ -51,6 +51,63 @@ namespace HackerRankLib
         }
 
         /// <summary>
+        /// Implement the BuildCartesianProduct method, which given a collection of unique numbers will return the Cartesian product for those numbers as strings.
+        /// For example for input (1,2 5) the result shall be "1 11", "12", "15", "21", "22", "25", "51","52","55"
+        /// </summary>
+        /// <param name="arrA">The array A</param>
+        /// <returns></returns>
+        public IEnumerable<string> BuildCartesianProduct(int[] arrA)
+        {
+            var finalResult = new List<string>();
+
+            foreach (var item in arrA)
+            {
+                finalResult.AddRange(arrA.Select(t => "" + item + "," + t));
+            }
+
+            return finalResult;
+        }
+
+        /// <summary>
+        /// Combines the arrays.
+        /// </summary>
+        /// <param name="arrA">The arr a.</param>
+        /// <param name="arrB">The arr b.</param>
+        /// <param name="numberOfItemsToGrabOnA">The number of items to grab on a.</param>
+        /// <param name="numberOfItemsToGrabOnB">The number of items to grab on b.</param>
+        /// <returns></returns>
+        public int[] CombineArrays(int[] arrA, int[] arrB, int numberOfItemsToGrabOnA, int numberOfItemsToGrabOnB)
+        {
+            return [.. arrA[..numberOfItemsToGrabOnA], .. arrB[..numberOfItemsToGrabOnB]];
+        }
+
+        /// <summary>
+        /// Cyclic the rotation.
+        /// </summary>
+        /// <param name="initialArr">The initial arr.</param>
+        /// <param name="rotations">The rotations.</param>
+        /// <returns></returns>
+        public int[] CyclicRotation(int[] initialArr, int rotations)
+        {
+            var result = new List<int>(initialArr.ToList());
+            var counter = 1;
+
+            while (counter <= rotations)
+            {
+                var lastItem = initialArr[^1];
+                for (var i = 0; i < initialArr.Length - 1; i++)
+                {
+                    result[i + 1] = initialArr[i];
+                }
+                result[0] = lastItem;
+                Array.Copy(result.ToArray(), initialArr, initialArr.Length);
+                counter++;
+            }
+
+            return result.ToArray();
+        }
+
+        /// <summary>
         /// Finds the smallest positive integer. given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
         /// For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
         /// Given A = [1, 2, 3], the function should return 4.
@@ -256,19 +313,30 @@ namespace HackerRankLib
         /// </summary>
         /// <param name="node"></param>
         /// <param name="numberOfSuccessiveNumbers"></param>
+        /// <param name="allowDuplicates"></param>
         /// <returns>
         ///   <br />
         /// </returns>
-        public Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers)
+        public Tuple<string, int> PossibleSuccessiveCombinations(Tree? node, int numberOfSuccessiveNumbers, bool allowDuplicates)
         {
             var result = new List<List<int>>();
             var numbersOnString = new StringBuilder();
-            FunctionsHelper.FindConsecutiveNumbersHelper(node, new List<int>(), result, numberOfSuccessiveNumbers);
+            FunctionsHelper.FindConsecutiveNumbersHelper(node, [], result, numberOfSuccessiveNumbers);
+            var counter = 0;
             result.ForEach(numbers =>
             {
-                numbersOnString.AppendLine(string.Join("", numbers));
+                var newNumber = string.Join("", numbers);
+                if (allowDuplicates)
+                {
+                    numbersOnString.AppendLine(newNumber);
+                }
+                else if (!numbersOnString.ToString().Contains(newNumber))
+                {
+                    numbersOnString.AppendLine(newNumber);
+                    counter++;
+                }
             });
-            return new Tuple<string, int>(numbersOnString.ToString(), result.Count);
+            return new Tuple<string, int>(numbersOnString.ToString(), allowDuplicates ? result.Count : counter);
         }
 
         /// <summary>
@@ -314,68 +382,5 @@ namespace HackerRankLib
             }
             return result.ToString();
         }
-
-        /// <summary>
-        /// Cyclic the rotation.
-        /// </summary>
-        /// <param name="initialArr">The initial arr.</param>
-        /// <param name="rotations">The rotations.</param>
-        /// <returns></returns>
-        public int[] CyclicRotation(int[] initialArr, int rotations)
-        {
-            var result = new List<int>(initialArr.ToList());
-            var counter = 1;
-            
-            while (counter <= rotations)
-            {
-                var lastItem = initialArr[^1];                
-                for (var i = 0; i < initialArr.Length - 1; i++)
-                {
-                    result[i + 1] = initialArr[i];
-                }
-                result[0] = lastItem;
-                Array.Copy(result.ToArray(), initialArr, initialArr.Length);
-                counter++;
-            }
-
-            return result.ToArray();
-        }
-
-        /// <summary>
-        /// Combines the arrays.
-        /// </summary>
-        /// <param name="arrA">The arr a.</param>
-        /// <param name="arrB">The arr b.</param>
-        /// <param name="numberOfItemsToGrabOnA">The number of items to grab on a.</param>
-        /// <param name="numberOfItemsToGrabOnB">The number of items to grab on b.</param>
-        /// <returns></returns>
-        public int[] CombineArrays(int[] arrA, int[] arrB, int numberOfItemsToGrabOnA, int numberOfItemsToGrabOnB)
-        {
-            var terst = arrA.Take(numberOfItemsToGrabOnA).Union(arrB.Take(numberOfItemsToGrabOnB));
-            return [.. arrA[0..numberOfItemsToGrabOnA], .. arrB[0..numberOfItemsToGrabOnB]];
-        }
-
-        /// <summary>
-        /// Implement the BuildCartesianProduct method, which given a collection of unique numbers will return the Cartesian product for those numbers as strings.
-        /// For example for input (1,2 5) the result shall be "1 11", "12", "15", "21", "22", "25", "51","52","55"
-        /// </summary>
-        /// <param name="arrA">The array A</param>
-        /// <returns></returns>
-        public IEnumerable<string> BuildCartesianProduct(int[] arrA)
-        {
-            var finalResult = new List<string>();
-
-            foreach (var item in arrA)
-            {
-                finalResult.AddRange(arrA.Select(t => "" + item + "," + t));
-            }
-
-            return finalResult;
-        }
-                
     }
 }
-
-
-
-  
