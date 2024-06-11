@@ -32,7 +32,7 @@ namespace HackerRankLib
             {
                 if (char.IsLetter(chr))
                 {
-                    FunctionsHelper.SetValuesIntoArray(number.ToString(), prevLetter, list);
+                    SetValuesIntoArray(number.ToString(), prevLetter, list);
                     number.Clear();
                     prevLetter = chr;
                 }
@@ -46,7 +46,7 @@ namespace HackerRankLib
                 }
             }
 
-            FunctionsHelper.SetValuesIntoArray(number.ToString(), prevLetter, list);
+            SetValuesIntoArray(number.ToString(), prevLetter, list);
             return string.Join("", list.Select(x => $"{x.Key}{x.Value}"));
         }
 
@@ -322,7 +322,7 @@ namespace HackerRankLib
             var result = new List<List<int>>();
             var numbersOnString = new StringBuilder();
             var uniqueNumbers = new HashSet<string>();
-            FunctionsHelper.FindConsecutiveNumbersHelper(node, [], result, numberOfSuccessiveNumbers);
+            FindConsecutiveNumbersHelper(node, [], result, numberOfSuccessiveNumbers);
             var counter = 0;
             foreach (var numbers in result)
             {
@@ -376,6 +376,42 @@ namespace HackerRankLib
                 result.AppendLine(partialResult.ToString());
             }
             return result.ToString();
+        }
+
+        private static void FindConsecutiveNumbersHelper(Tree? node, List<int> currentPath, ICollection<List<int>> result, int n)
+        {
+            while (true)
+            {
+                if (node == null) return;
+
+                currentPath.Add(node.Value);
+
+                if (currentPath.Count == n)
+                {
+                    Console.WriteLine(currentPath);
+                    result.Add([.. currentPath]);
+                    currentPath.RemoveAt(0);
+                }
+
+                FindConsecutiveNumbersHelper(node.LeftTree, [.. currentPath], result, n);
+                node = node.RightTree;
+                currentPath = [.. currentPath];
+            }
+        }
+
+
+        private static void SetValuesIntoArray(string number, char prevLetter, IDictionary<char, int> sortedDictionary)
+        {
+            if (string.IsNullOrEmpty(number)) return;
+            if (prevLetter == default) return;
+            if (!sortedDictionary.ContainsKey(prevLetter))
+            {
+                sortedDictionary.Add(prevLetter, Convert.ToInt32(number));
+            }
+            else
+            {
+                sortedDictionary[prevLetter] += Convert.ToInt32(number);
+            }
         }
     }
 }

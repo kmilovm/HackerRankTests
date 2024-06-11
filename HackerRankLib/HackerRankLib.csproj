@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="FunctionsHelper.cs" />
+  </ItemGroup>
+
 </Project>
