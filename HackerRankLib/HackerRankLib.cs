@@ -324,8 +324,10 @@ namespace HackerRankLib
             var uniqueNumbers = new HashSet<string>();
             FunctionsHelper.FindConsecutiveNumbersHelper(node, [], result, numberOfSuccessiveNumbers);
             var counter = 0;
-            foreach (var newNumber in result.Select(numbers => string.Join("", numbers)).Where(newNumber => allowDuplicates || uniqueNumbers.Add(newNumber)))
+            foreach (var numbers in result)
             {
+                var newNumber = string.Join("", numbers);
+                if (!allowDuplicates && !uniqueNumbers.Add(newNumber)) continue;
                 numbersOnString.AppendLine(newNumber);
                 counter++;
             }
