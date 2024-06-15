@@ -1,14 +1,15 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 using System.Text.RegularExpressions;
-using HackerRankLib.Model;
+using MyTestsPresentedLib.Model;
 
-namespace HackerRankLib
+namespace MyTestsPresentedLib
 {
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="HackerRankLib.IHackerRankLib" />
-    public class HackerRankLibrary : IHackerRankLib
+    /// <seealso cref="MyTestsPresentedLib.IMyTestsPresentedLib" />
+    public class MyTestsPresentedLibrary : IMyTestsPresentedLib
     {
         /// <summary>
         /// Joseph and Jane are making a contest for apes. During the process, they have to communicate frequently with each other. Since they are not completely human,
@@ -374,6 +375,57 @@ namespace HackerRankLib
                 result.AppendLine(partialResult.ToString());
             }
             return result.ToString();
+        }
+
+        public int[] TwoSum(int[] nums, int target)
+        {
+            var map = new Dictionary<int, int>();
+            for (var i = 0; i < nums.Length; i++)
+            {
+                var complement = target - nums[i];
+                if (map.TryGetValue(complement, out var value))
+                {
+                    return [value, i];
+                }
+                if (!map.ContainsKey(nums[i]))
+                {
+                    map.Add(nums[i], i);
+                }
+            }
+            throw new Exception("No two sum solution found");
+        }
+
+        public ListNode AddTwoNumbers(ListNode listNode1, ListNode listNode2)
+        {
+            var resultNode = new ListNode(0);
+            var current = resultNode;
+            var acumulator = 0;
+
+            while (listNode1 != null || listNode2 != null)
+            {
+                var sum = acumulator;
+                if (listNode1 != null)
+                {
+                    sum += listNode1.val;
+                    listNode1 = listNode1.next;
+                }
+                if (listNode2 != null)
+                {
+                    sum += listNode2.val;
+                    listNode2 = listNode2.next;
+                }
+
+                acumulator = sum / 10;
+                current.next = new ListNode(sum % 10);
+                current = current.next;
+            }
+
+            if (acumulator > 0)
+            {
+                current.next = new ListNode(acumulator);
+            }
+
+            return resultNode.next;
         }
 
         private static void FindConsecutiveNumbersHelper(Tree? node, List<int> currentPath, ICollection<List<int>> result, int n)

@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackerRankLib", "..\HackerRankLib\HackerRankLib.csproj", "{0E393D25-49E8-4C85-93FA-75DBEA4FE980}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackerRankTests", "HackerRankTests.csproj", "{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestsPresentedLib", "..\MyTestsPresentedLib\MyTestsPresentedLib.csproj", "{0E393D25-49E8-4C85-93FA-75DBEA4FE980}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "..\Tests\Tests.csproj", "{77A314C9-F560-4DB6-887E-87FE76C4940C}"
 EndProject
@@ -19,10 +17,6 @@ Global
 		{0E393D25-49E8-4C85-93FA-75DBEA4FE980}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E393D25-49E8-4C85-93FA-75DBEA4FE980}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E393D25-49E8-4C85-93FA-75DBEA4FE980}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1DF78D7-522E-4EC2-8B91-04A0EF214E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{77A314C9-F560-4DB6-887E-87FE76C4940C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77A314C9-F560-4DB6-887E-87FE76C4940C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77A314C9-F560-4DB6-887E-87FE76C4940C}.Release|Any CPU.ActiveCfg = Release|Any CPU

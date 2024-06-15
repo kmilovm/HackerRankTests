@@ -1,8 +1,8 @@
-﻿using HackerRankLib.Model;
+﻿using MyTestsPresentedLib.Model;
 
-namespace HackerRankLib
+namespace MyTestsPresentedLib
 {
-    public interface IHackerRankLib
+    public interface IMyTestsPresentedLib
     {
         string BetterCompression(string str);
 
@@ -27,5 +27,9 @@ namespace HackerRankLib
         string PossibleTwoSums(int target, int arrayLength);
 
         string StairCase(int number);
+
+        int[] TwoSum(int[] numbers, int target);
+
+        ListNode AddTwoNumbers(ListNode list1, ListNode list2);
     }
 }
