@@ -81,5 +81,10 @@ namespace MyTestsPresentedLib
         {
             return _MyTestsPresentedLib!.AddTwoNumbers(list1, list2);
         }
+
+        public static ListNode ReverseNodesInIndex(ListNode list1, int index)
+        {
+            return _MyTestsPresentedLib!.ReverseNodesInIndex(list1, index);
+        }
     }
 }

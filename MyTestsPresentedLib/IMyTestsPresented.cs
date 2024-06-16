@@ -31,5 +31,7 @@ namespace MyTestsPresentedLib
         int[] TwoSum(int[] numbers, int target);
 
         ListNode AddTwoNumbers(ListNode list1, ListNode list2);
+
+        ListNode ReverseNodesInIndex(ListNode list, int index);
     }
 }

@@ -490,5 +490,105 @@ namespace Tests
                 }
             }
         };
+
+        public static IEnumerable<object[]> ReverseNodesData => new List<object[]>()
+        {
+            new object[]
+            {
+                new ListNode()
+                {
+                    val = 1,
+                    next = new ListNode()
+                    {
+                        val = 2,
+                        next = new ListNode()
+                        {
+                            val=3,
+                            next = new ListNode()
+                            {
+                                val = 4,
+                                next = new ListNode()
+                                {
+                                    val = 5,
+                                    next = null
+                                }
+                            }
+                        }
+                    }
+
+                },
+                new ListNode()
+                {
+                    val = 2,
+                    next = new ListNode()
+                    {
+                        val = 1,
+                        next = new ListNode()
+                        {
+                            val = 4,
+                            next = new ListNode()
+                            {
+                                val = 3,
+                                next = new ListNode()
+                                {
+                                    val = 5,
+                                    next = null
+                                }
+                            }
+                        }
+                    }
+
+                },
+                2
+            },
+            new object[]
+            {
+                new ListNode()
+                {
+                    val = 1,
+                    next = new ListNode()
+                    {
+                        val = 2,
+                        next = new ListNode()
+                        {
+                            val=3,
+                            next = new ListNode()
+                            {
+                                val = 4,
+                                next = new ListNode()
+                                {
+                                    val = 5,
+                                    next = null
+                                }
+                            }
+                        }
+                    }
+                    
+                },
+                new ListNode()
+                {
+                    val = 3,
+                    next = new ListNode()
+                    {
+                        val = 2,
+                        next = new ListNode()
+                        {
+                            val = 1,
+                            next = new ListNode()
+                            {
+                                val = 4,
+                                next = new ListNode()
+                                {
+                                    val = 5,
+                                    next = null
+                                }
+                            }
+                        }
+                    }
+
+                },
+                3
+            }
+        };
     }
 }

@@ -11,6 +11,39 @@ namespace MyTestsPresentedLib
     /// <seealso cref="MyTestsPresentedLib.IMyTestsPresentedLib" />
     public class MyTestsPresentedLibrary : IMyTestsPresentedLib
     {
+        public ListNode AddTwoNumbers(ListNode listNode1, ListNode listNode2)
+        {
+            var resultNode = new ListNode(0);
+            var current = resultNode;
+            var acumulator = 0;
+
+            while (listNode1 != null || listNode2 != null)
+            {
+                var sum = acumulator;
+                if (listNode1 != null)
+                {
+                    sum += listNode1.val;
+                    listNode1 = listNode1.next;
+                }
+                if (listNode2 != null)
+                {
+                    sum += listNode2.val;
+                    listNode2 = listNode2.next;
+                }
+
+                acumulator = sum / 10;
+                current.next = new ListNode(sum % 10);
+                current = current.next;
+            }
+
+            if (acumulator > 0)
+            {
+                current.next = new ListNode(acumulator);
+            }
+
+            return resultNode.next;
+        }
+
         /// <summary>
         /// Joseph and Jane are making a contest for apes. During the process, they have to communicate frequently with each other. Since they are not completely human,
         /// they cannot speak properly. They have to transfer messages using postcards of small sizes.
@@ -139,6 +172,7 @@ namespace MyTestsPresentedLib
 
             return -1;
         }
+
         /// <summary>
         /// Gets the average temperature from sensors.
         ///We have a client who has deployed temperature sensors throughout cold storage warehouses. 
@@ -377,6 +411,44 @@ namespace MyTestsPresentedLib
             return result.ToString();
         }
 
+        public ListNode ReverseNodesInIndex(ListNode node, int index)
+        {
+            if (index == 1) return node;
+
+            var tempNode = new ListNode(0)
+            {
+                next = node
+            };
+
+            var currentNode = tempNode;
+            var preNode = tempNode;
+            var count = 0;
+
+            while (currentNode.next != null)
+            {
+                currentNode = currentNode.next;
+                count++;
+            }
+
+            while (count >= index)
+            {
+                currentNode = preNode?.next;
+                var nextNode = currentNode?.next;
+
+                for (var i = 1; i < index; ++i)
+                {
+                    currentNode.next = nextNode.next;
+                    nextNode.next = preNode?.next;
+                    preNode.next = nextNode;
+                    nextNode = currentNode.next;
+                }
+
+                preNode = currentNode;
+                count -= index;
+            }
+            return tempNode.next;
+        }
+
         public int[] TwoSum(int[] nums, int target)
         {
             var map = new Dictionary<int, int>();
@@ -394,40 +466,7 @@ namespace MyTestsPresentedLib
             }
             throw new Exception("No two sum solution found");
         }
-
-        public ListNode AddTwoNumbers(ListNode listNode1, ListNode listNode2)
-        {
-            var resultNode = new ListNode(0);
-            var current = resultNode;
-            var acumulator = 0;
-
-            while (listNode1 != null || listNode2 != null)
-            {
-                var sum = acumulator;
-                if (listNode1 != null)
-                {
-                    sum += listNode1.val;
-                    listNode1 = listNode1.next;
-                }
-                if (listNode2 != null)
-                {
-                    sum += listNode2.val;
-                    listNode2 = listNode2.next;
-                }
-
-                acumulator = sum / 10;
-                current.next = new ListNode(sum % 10);
-                current = current.next;
-            }
-
-            if (acumulator > 0)
-            {
-                current.next = new ListNode(acumulator);
-            }
-
-            return resultNode.next;
-        }
-
+        #region Private Methods
         private static void FindConsecutiveNumbersHelper(Tree? node, List<int> currentPath, ICollection<List<int>> result, int n)
         {
             while (true)
@@ -463,5 +502,7 @@ namespace MyTestsPresentedLib
                 sortedDictionary[prevLetter] += Convert.ToInt32(number);
             }
         }
+
+        #endregion
     }
 }
