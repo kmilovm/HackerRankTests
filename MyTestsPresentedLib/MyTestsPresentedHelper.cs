@@ -86,5 +86,10 @@ namespace MyTestsPresentedLib
         {
             return _MyTestsPresentedLib!.ReverseNodesInIndex(list1, index);
         }
+
+        public static IList<IList<string>> SolveNQueens(int n)
+        {
+            return _MyTestsPresentedLib.SolveNQueens(n);
+        }
     }
 }

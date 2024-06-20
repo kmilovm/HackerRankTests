@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System.Collections;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.Metrics;
 using System.Text;
 using System.Text.RegularExpressions;
 using MyTestsPresentedLib.Model;
@@ -466,6 +468,20 @@ namespace MyTestsPresentedLib
             }
             throw new Exception("No two sum solution found");
         }
+
+        public IList<IList<string>> SolveNQueens(int numberOfQueens)
+        {
+            var result = new List<IList<string>>();
+            var queens = new int[numberOfQueens];
+            Array.Fill(queens, -1);
+            var cols = new bool[numberOfQueens];
+            var diag1 = new bool[2 * numberOfQueens];
+            var diag2 = new bool[2 * numberOfQueens];
+            Solve(0, numberOfQueens, queens, cols, diag1, diag2, result);
+            return result;
+
+        }
+
         #region Private Methods
         private static void FindConsecutiveNumbersHelper(Tree? node, List<int> currentPath, ICollection<List<int>> result, int n)
         {
@@ -487,8 +503,7 @@ namespace MyTestsPresentedLib
                 currentPath = [.. currentPath];
             }
         }
-
-
+        
         private static void SetValuesIntoArray(string number, char prevLetter, IDictionary<char, int> sortedDictionary)
         {
             if (string.IsNullOrEmpty(number)) return;
@@ -502,6 +517,40 @@ namespace MyTestsPresentedLib
                 sortedDictionary[prevLetter] += Convert.ToInt32(number);
             }
         }
+
+        private static void Solve(int row, int n, int[] queens, IList<bool> cols, IList<bool> diag1, IList<bool> diag2, ICollection<IList<string>> result)
+        {
+            if (row == n)
+            {
+                result.Add(BuildBoard(queens, n));
+                return;
+            }
+
+            for (var col = 0; col < n; col++)
+            {
+                if (cols[col] || diag1[row - col + n] || diag2[row + col])
+                    continue;
+
+                queens[row] = col;
+                cols[col] = diag1[row - col + n] = diag2[row + col] = true;
+                Solve(row + 1, n, queens, cols, diag1, diag2, result);
+                cols[col] = diag1[row - col + n] = diag2[row + col] = false;
+            }
+        }
+
+        private static IList<string> BuildBoard(IReadOnlyList<int> queens, int n)
+        {
+            var solution = new List<string>();
+            for (var i = 0; i < n; i++)
+            {
+                var row = new char[n];
+                Array.Fill(row, '.');
+                row[queens[i]] = 'Q';
+                solution.Add(new string(row));
+            }
+            return solution;
+        }
+
 
         #endregion
     }

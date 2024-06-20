@@ -1,4 +1,5 @@
-﻿using MyTestsPresentedLib.Model;
+﻿using System.Collections;
+using MyTestsPresentedLib.Model;
 
 namespace Tests
 {
@@ -588,6 +589,19 @@ namespace Tests
 
                 },
                 3
+            }
+        };
+
+        public static IEnumerable<object[]> QueensListData => new List<object[]>()
+        {
+            new object[]
+            {
+                4,
+                new List<IList<string>>
+                {
+                    new List<string> { ".Q..", "...Q", "Q...", "..Q." },
+                    new List<string> { "..Q.", "Q...", "...Q", ".Q.." }
+                }
             }
         };
     }

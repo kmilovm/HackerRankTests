@@ -33,5 +33,7 @@ namespace MyTestsPresentedLib
         ListNode AddTwoNumbers(ListNode list1, ListNode list2);
 
         ListNode ReverseNodesInIndex(ListNode list, int index);
+
+        IList<IList<string>> SolveNQueens(int n);
     }
 }

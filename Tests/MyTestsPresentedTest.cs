@@ -198,5 +198,14 @@ namespace Tests
             Assert.NotNull(answer);
             Assert.Equal(expected, answer);
         }
+        [Theory]
+        [MemberData(nameof(TestData.QueensListData), MemberType = typeof(TestData))]
+        public void SolveNQueens(int numberOfQueens, IList<IList<string>> expected)
+        {
+            var answer = MyTestsPresentedLibHelper.SolveNQueens(numberOfQueens);
+            _testOutputHelper.WriteLine($"Expected: {string.Join(", ", expected)}, Got {string.Join(", ", answer)}");
+            Assert.NotNull(answer);
+            Assert.Equal(expected, answer);
+        }
     }
 }
